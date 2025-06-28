@@ -5,6 +5,8 @@ import Login from "./components/Login"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import Dashboard from "./components/Dashboard"
+import ManageBanners from "./components/ManageBanners"
+
 import "./App.css"
 import TradeSettings from "./components/TradeSettings"
 
@@ -45,6 +47,8 @@ function App() {
         return <Dashboard />
       case "trade-setting":
         return <TradeSettings />
+      case "manage-banners":
+        return <ManageBanners />
       // Add cases for other sidebar items:
       // case 'manage-banners':
       //   return <ManageBanners />
