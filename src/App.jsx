@@ -6,9 +6,10 @@ import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import Dashboard from "./components/Dashboard"
 import ManageBanners from "./components/ManageBanners"
+import ProfileSettings from "./components/ProfileSettings"
+import TradeSettings from "./components/TradeSettings"
 
 import "./App.css"
-import TradeSettings from "./components/TradeSettings"
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -49,10 +50,8 @@ function App() {
         return <TradeSettings />
       case "manage-banners":
         return <ManageBanners />
-      // Add cases for other sidebar items:
-      // case 'manage-banners':
-      //   return <ManageBanners />
-      // ...etc...
+      case "profile-settings":
+        return <ProfileSettings />
       default:
         return (
           <div style={{ padding: 40, textAlign: "center", color: "#888" }}>
@@ -71,7 +70,11 @@ function App() {
   // Show main dashboard if authenticated
   return (
     <div className="app">
-      <Header onToggleSidebar={toggleSidebar} onLogout={handleLogout} />
+      <Header
+        onToggleSidebar={toggleSidebar}
+        onLogout={handleLogout}
+        onProfileClick={() => setActiveItem("profile-settings")}
+      />
       <div className="app-content">
         <Sidebar
           isOpen={sidebarOpen}

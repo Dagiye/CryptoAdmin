@@ -1,6 +1,12 @@
-import React from 'react'
+"use client"
 
-const Header = ({ onToggleSidebar }) => {
+const Header = ({ onToggleSidebar, onProfileClick }) => {
+  const handleProfileClick = () => {
+    if (onProfileClick) {
+      onProfileClick()
+    }
+  }
+
   return (
     <header className="header">
       <div className="header-content">
@@ -16,7 +22,7 @@ const Header = ({ onToggleSidebar }) => {
           </div>
         </div>
         <div className="header-right">
-          <div className="profile-avatar" style={{ fontSize: 24 }}>
+          <div className="profile-avatar" style={{ fontSize: 24, cursor: "pointer" }} onClick={handleProfileClick}>
             👤
           </div>
         </div>
