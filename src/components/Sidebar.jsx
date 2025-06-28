@@ -59,7 +59,12 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
             <h3 className="sidebar-title">Gateways</h3>
             <nav className="sidebar-nav">
               {gatewayItems.map(item => (
-                <a key={item.id} href="#" className="nav-item">
+                <a
+                  key={item.id}
+                  href="#"
+                  className={`nav-item ${activeItem === item.id ? 'active' : ''}`}
+                  onClick={() => onItemClick(item.id)}
+                >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-text">{item.label}</span>
                 </a>
@@ -71,7 +76,12 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
             <h3 className="sidebar-title">Logs</h3>
             <nav className="sidebar-nav">
               {logItems.map(item => (
-                <a key={item.id} href="#" className="nav-item">
+                <a
+                  key={item.id}
+                  href="#"
+                  className={`nav-item ${activeItem === item.id ? 'active' : ''}`}
+                  onClick={() => onItemClick(item.id)}
+                >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-text">{item.label}</span>
                 </a>
@@ -82,7 +92,12 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
             <h3 className="sidebar-title">Settings</h3>
             <nav className="sidebar-nav">
               {settingsItems.map(item => (
-                <a key={item.id} href="#" className="nav-item">
+                <a
+                  key={item.id}
+                  href="#"
+                  className={`nav-item ${activeItem === item.id ? 'active' : ''}`}
+                  onClick={() => onItemClick(item.id)}
+                >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-text">{item.label}</span>
                 </a>
