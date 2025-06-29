@@ -1,0 +1,372 @@
+/* Transfer Logs Component Styles */
+.transfer-logs-container {
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.transfer-logs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0px;
+  gap: 24px;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2d3436;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #636e72;
+  margin: 0;
+  font-weight: 400;
+}
+
+.search-container {
+  flex-shrink: 0;
+  min-width: 280px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #636e72;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.search-input::placeholder {
+  color: #a0a6ab;
+}
+
+.transfer-logs-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.card-header {
+  background: linear-gradient(135deg, #e53e3e 0%, #d63031 100%);
+  padding: 16px 24px;
+  color: white;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.transfer-logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.transfer-logs-table thead {
+  background-color: #f8f9fa;
+}
+
+.transfer-logs-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3436;
+  border-bottom: 2px solid #e1e5e9;
+  white-space: nowrap;
+}
+
+.transfer-row {
+  border-bottom: 1px solid #e1e5e9;
+  transition: background-color 0.2s ease;
+}
+
+.transfer-row:hover {
+  background-color: #f8f9fa;
+}
+
+.transfer-row:last-child {
+  border-bottom: none;
+}
+
+.transfer-logs-table td {
+  padding: 16px 20px;
+  vertical-align: middle;
+}
+
+.sender-cell,
+.receiver-cell {
+  min-width: 120px;
+}
+
+.username {
+  font-weight: 500;
+  color: #e53e3e;
+  font-size: 14px;
+}
+
+.username:hover {
+  color: #d63031;
+  cursor: pointer;
+}
+
+.amount-cell,
+.charge-cell,
+.after-charge-cell {
+  min-width: 100px;
+  text-align: left;
+}
+
+.amount,
+.charge,
+.after-charge {
+  font-weight: 600;
+  font-size: 15px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.amount.orange {
+  color: #fd7e14;
+}
+
+.charge.red {
+  color: #e53e3e;
+}
+
+.after-charge.green {
+  color: #00b894;
+}
+
+.time-cell {
+  min-width: 180px;
+}
+
+.timestamp {
+  color: #636e72;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.no-results {
+  padding: 40px 24px;
+  text-align: center;
+  color: #636e72;
+}
+
+.no-results p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 24px;
+  gap: 8px;
+  border-top: 1px solid #e1e5e9;
+  background-color: #f8f9fa;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 1px solid #e1e5e9;
+  background-color: #ffffff;
+  color: #636e72;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  border-color: #d1d5db;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 4px;
+  margin: 0 16px;
+}
+
+.pagination-number {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e1e5e9;
+  background-color: #ffffff;
+  color: #636e72;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-number:hover {
+  background-color: #f8f9fa;
+  border-color: #d1d5db;
+}
+
+.pagination-number.active {
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+  color: #ffffff;
+}
+
+.pagination-number.active:hover {
+  background-color: #d63031;
+  border-color: #d63031;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .transfer-logs-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .search-container {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .transfer-logs-container {
+    padding: 16px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .transfer-logs-table {
+    font-size: 13px;
+  }
+  
+  .transfer-logs-table th,
+  .transfer-logs-table td {
+    padding: 12px 16px;
+  }
+  
+  .pagination-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .pagination-numbers {
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .transfer-logs-table th,
+  .transfer-logs-table td {
+    padding: 10px 12px;
+  }
+  
+  .amount,
+  .charge,
+  .after-charge {
+    font-size: 14px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+  }
+  
+  .pagination-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .pagination-number {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+/* Hover Effects */
+.search-input-wrapper:hover .search-input {
+  border-color: #d1d5db;
+}
+
+/* Focus States */
+.transfer-logs-table:focus-within {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .transfer-logs-container {
+    background-color: white;
+    padding: 0;
+  }
+  
+  .search-container,
+  .pagination-container {
+    display: none;
+  }
+  
+  .transfer-logs-card {
+    box-shadow: none;
+    border: 1px solid #e1e5e9;
+  }
+}

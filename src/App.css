@@ -9,6 +9,7 @@ body {
   background-color: #f8f9fa;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .app {
@@ -27,6 +28,8 @@ body {
   background: white;
   border-bottom: 1px solid #e2e8f0;
   z-index: 1000;
+
+  width: 100%;
 }
 
 .header-content {
@@ -424,3 +427,4 @@ body {
 .sidebar::-webkit-scrollbar {
   display: none;
 }
+
