@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import './App.css'
+
 import TradeSettings from './components/TradeSettings'
-// Import other components as needed, e.g.:
-// import Dashboard from './components/Dashboard'
-// import ManageBanners from './components/ManageBanners'
-// etc.
+
+// Import your pages
+import CheckInSettings from './pages/CheckInSettings'
+import EmailSettings from './pages/EmailSettings'
+import NoticeSetup from './pages/NoticeSetup'
+import AboutUsSetup from './pages/AboutUsSetup'
+import ContactDetails from './pages/ContactDetails'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -16,17 +20,27 @@ function App() {
     setSidebarOpen(!sidebarOpen)
   }
 
-  // Render content based on activeItem
+  // Render content based on sidebar selection
   const renderContent = () => {
     switch (activeItem) {
       case 'trade-setting':
         return <TradeSettings />
-      // Add cases for other sidebar items:
-      // case 'dashboard':
-      //   return <Dashboard />
-      // case 'manage-banners':
-      //   return <ManageBanners />
-      // ...etc...
+
+      case 'checkin-settings':
+        return <CheckInSettings />
+
+      case 'email-settings':
+        return <EmailSettings />
+
+      case 'notice-setup':
+        return <NoticeSetup />
+
+      case 'about-us-setup':
+        return <AboutUsSetup />
+
+      case 'contact-details-setup':
+        return <ContactDetails />
+
       default:
         return (
           <div style={{ padding: 40, textAlign: 'center', color: '#888' }}>

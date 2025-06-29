@@ -28,7 +28,7 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
     { id: 'checkin-settings', label: 'Check-In Settings', icon: '✅' },
     { id: 'email-settings', label: 'Email Settings', icon: '✉️' },
     { id: 'notice-setup', label: 'Notice Setup', icon: '🔔' },
-    { id: 'aboutus-setup', label: 'About Us Setup', icon: 'ℹ️' },
+    { id: 'about-us-setup', label: 'About Us Setup', icon: 'ℹ️' },              // ✅ fixed
     { id: 'contact-details-setup', label: 'Contact Details Setup', icon: '📞' },
     { id: 'logout', label: 'Logout', icon: '🚪' }
   ];
@@ -38,6 +38,7 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
       <div className={`sidebar-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}></div>
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-content">
+
           <div className="sidebar-section">
             <h3 className="sidebar-title">Menu</h3>
             <nav className="sidebar-nav">
@@ -88,6 +89,7 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
               ))}
             </nav>
           </div>
+
           <div className="sidebar-section">
             <h3 className="sidebar-title">Settings</h3>
             <nav className="sidebar-nav">
@@ -108,10 +110,11 @@ const Sidebar = ({ isOpen, onClose, activeItem, onItemClick }) => {
           <div className="sidebar-footer">
             <span className="version">Version 1.0</span>
           </div>
+
         </div>
       </aside>
     </>
   );
-}
+};
 
 export default Sidebar;

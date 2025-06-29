@@ -404,6 +404,25 @@ body {
   .page-header {
     margin-bottom: 24px;
   }
+
+  .email-settings-container {
+    padding: 16px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .email-settings-form {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .email-settings-title {
+    font-size: 16px;
+  }
+
+  .email-settings-subtitle {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -423,4 +442,14 @@ body {
 /* Scrollbar Styling */
 .sidebar::-webkit-scrollbar {
   display: none;
+}
+
+/* NoticeSetup Scrolling Animation */
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
