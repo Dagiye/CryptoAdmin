@@ -480,4 +480,4 @@ const styles = {
   },
 };
 
-export default ContactDetailsSetup;
+export default ContactDetailsSetup; 

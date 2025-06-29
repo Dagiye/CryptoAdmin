@@ -5,12 +5,12 @@ import './App.css'
 
 import TradeSettings from './components/TradeSettings'
 
-// Import your pages
-import CheckInSettings from './pages/CheckInSettings'
-import EmailSettings from './pages/EmailSettings'
-import NoticeSetup from './pages/NoticeSetup'
-import AboutUsSetup from './pages/AboutUsSetup'
-import ContactDetails from './pages/ContactDetails'
+// Import your components
+import CheckInSettings from './components/CheckInSettings'
+import EmailSettings from './components/EmailSettings'
+import NoticeSetup from './components/NoticeSetup'
+import AboutUsSetup from './components/AboutUsSetup'
+import ContactDetails from './components/ContactDetails'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)

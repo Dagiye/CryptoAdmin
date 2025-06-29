@@ -44,9 +44,12 @@ const CheckInSettings = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Check In Setup</h1>
-      <p style={styles.subtitle}>Setup Daily Check In System</p>
+    <div className="settings-section" style={styles.container}>
+      <div className="page-header">
+        <h1 className="page-title" style={styles.title}>Check In Setup</h1>
+        <p className="page-subtitle" style={styles.subtitle}>Setup Daily Check In System</p>
+      </div>
+      
       <form onSubmit={handleSubmit} style={styles.form}>
         {Object.entries(bonuses).map(([day, val]) => (
           <div key={day}>
@@ -81,10 +84,6 @@ const styles = {
   container: {
     maxWidth: "1100px",
     margin: "0 auto",
-    background: "#ffffff",
-    padding: "20px 30px",
-    borderRadius: "12px",
-    boxShadow: "0 2px 10px rgba(194, 14, 63, 0.1)",
     fontFamily: "'Segoe UI', sans-serif",
     color: "#c20e3f",
   },
@@ -144,4 +143,4 @@ const styles = {
   },
 };
 
-export default CheckInSettings;
+export default CheckInSettings; 

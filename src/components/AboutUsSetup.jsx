@@ -118,4 +118,4 @@ const styles = {
   },
 };
 
-export default AboutUsSetup;
+export default AboutUsSetup; 
