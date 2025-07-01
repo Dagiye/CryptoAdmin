@@ -7,6 +7,7 @@ import DepositLogs from './components/DepositLogs';
 import Transactions from './components/Transactions';
 import TransferLogs from './components/TransferLogs';
 import WithdrawLogs from './components/WithdrawLogs'
+import SiteSettings from './components/SiteSettings'
 // ...existing code...
 // Import other components as needed, e.g.:
 // import Dashboard from './components/Dashboard'
@@ -34,6 +35,8 @@ function App() {
         return <TransferLogs />
       case 'withdraw-logs':
         return <WithdrawLogs />
+      case 'site-settings':
+        return <SiteSettings />
       // Add cases for other sidebar items:
       // case 'dashboard':
       //   return <Dashboard />
