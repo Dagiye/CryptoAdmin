@@ -2,14 +2,26 @@ import React, { useState, useMemo, useEffect } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import './App.css'
+
 import TradeSettings from './components/TradeSettings'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
-// import ManageBanners from './components/ManageBanners'
-// ...import other components as needed...
-
-// If you have mock users, import them
-// import mockUsers from './data/mockUsers'
+import CheckInSettings from './components/CheckInSettings'
+import EmailSettings from './components/EmailSettings'
+import NoticeSetup from './components/NoticeSetup'
+import AboutUsSetup from './components/AboutUsSetup'
+import ContactDetails from './components/ContactDetails'
+import UserTable from './components/UserTable'
+import UserDetails from './components/UserDetails'
+import ManageBanners from './components/ManageBanners'
+import ProfileSettings from './components/ProfileSettings'
+import WithdrawalMethods from './components/WithdrawalMethods'
+import DepositMethods from './components/DepositMethods'
+import DepositLogs from './components/DepositLogs'
+import Transactions from './components/Transactions'
+import TransferLogs from './components/TransferLogs'
+import WithdrawLogs from './components/WithdrawLogs'
+import{ mockUsers } from './data/mockUsers' // Import mock users if needed
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -23,9 +35,9 @@ function App() {
   const [selectedUser, setSelectedUser] = useState(null)
 
   // Example: Load mock users on mount (if you have mockUsers)
-  // useEffect(() => {
-  //   setUsers(mockUsers)
-  // }, [])
+  useEffect(() => {
+    setUsers(mockUsers)
+  }, [])
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen)
@@ -87,7 +99,10 @@ function App() {
 
   // Dummy login/logout handlers
   const handleLogin = () => setIsAuthenticated(true)
-  const handleLogout = () => setIsAuthenticated(false)
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setActiveItem('dashboard'); // <-- Reset to default page
+  }
 
   // Render content based on activeItem
   const renderContent = () => {
@@ -96,9 +111,57 @@ function App() {
         return <Dashboard />
       case 'trade-setting':
         return <TradeSettings />
-      // Add cases for other sidebar items:
-      // case 'manage-banners':
-      //   return <ManageBanners />
+       case 'checkin-settings':
+          return <CheckInSettings />
+      case 'email-settings':
+          return <EmailSettings />
+      case 'notice-setup':
+          return <NoticeSetup />
+      case 'about-us-setup':
+          return <AboutUsSetup />
+      case 'contact-details-setup':
+          return <ContactDetails />
+      case 'manage-users':
+        return (
+          <UserTable
+            users={paginatedUsers}
+            onViewDetails={handleViewDetails}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+          />
+        )
+      case 'user-details':
+        return (
+          <UserDetails
+            user={selectedUser}
+            onBack={handleBackToUsers}
+            onUserUpdate={handleUserUpdate}
+            onVisitAccount={handleVisitAccount}
+          />
+        )
+      // Uncomment and add other cases as needed:
+      case 'manage-banners':
+        return <ManageBanners />
+      case 'profile-settings':
+        return <ProfileSettings />
+      case 'withdraw-methods':
+        return <WithdrawalMethods />
+      case 'deposit-methods':
+        return <DepositMethods />
+      case 'deposit-logs':
+        return <DepositLogs/>
+      case 'transactions':
+        return<Transactions/>
+      case 'transfer-logs':
+        return <TransferLogs />
+      case 'withdraw-logs':
+        return <WithdrawLogs />
+      case 'logout':
+        handleLogout();
+        return null;
       default:
         return (
           <div style={{ padding: 40, textAlign: 'center', color: '#888' }}>

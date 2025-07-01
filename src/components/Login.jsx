@@ -8,20 +8,16 @@ const Login = ({ onLogin }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
 
     try {
-      const validUsername = import.meta.env.VITE_ADMIN_USERNAME || "admin"
-      const validPassword = import.meta.env.VITE_ADMIN_PASSWORD || "password"
-
-
-      if (username === validUsername && password === validPassword) {
+      if (username === "admin" && password === "password") {
         setTimeout(() => {
           setIsLoading(false)
-          onLogin(true)
+          onLogin()
         }, 1000)
       } else {
         setTimeout(() => {

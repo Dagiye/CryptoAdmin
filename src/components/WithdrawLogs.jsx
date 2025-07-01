@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
-import './DepositLogs.css';
+import './WithdrawLogs.css';
 
-const DepositLogs = () => {
-  const [depositLogs, setDepositLogs] = useState([]);
+const WithdrawLogs = () => {
+  const [withdrawLogs, setWithdrawLogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLogs, setFilteredLogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,32 +12,32 @@ const DepositLogs = () => {
 
   useEffect(() => {
     // Empty for demo - in production, replace with API call to your Node.js backend
-    // Example: fetchDepositLogs();
-    setDepositLogs([]);
+    // Example: fetchWithdrawLogs();
+    setWithdrawLogs([]);
     setFilteredLogs([]);
   }, []);
 
   useEffect(() => {
-    const filtered = depositLogs.filter(log =>
+    const filtered = withdrawLogs.filter(log =>
       (log.gateway.toLowerCase().includes(searchTerm.toLowerCase()) ||
        log.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       log.transactionId.toLowerCase().includes(searchTerm.toLowerCase())) &&
+       log.paymentAddress.toLowerCase().includes(searchTerm.toLowerCase())) &&
       (statusFilter === 'All' || log.status === statusFilter)
     );
     setFilteredLogs(filtered);
     setCurrentPage(1); // Reset to first page when searching
-  }, [searchTerm, depositLogs, statusFilter]);
+  }, [searchTerm, withdrawLogs, statusFilter]);
 
-  // Function to fetch deposit logs from Node.js backend
-  const fetchDepositLogs = async () => {
+  // Function to fetch withdraw logs from Node.js backend
+  const fetchWithdrawLogs = async () => {
     try {
       // Replace with your actual API endpoint
-      const response = await fetch('/api/deposit-logs');
+      const response = await fetch('/api/withdraw-logs');
       const data = await response.json();
-      setDepositLogs(data);
+      setWithdrawLogs(data);
       setFilteredLogs(data);
     } catch (error) {
-      console.error('Error fetching deposit logs:', error);
+      console.error('Error fetching withdraw logs:', error);
     }
   };
 
@@ -67,8 +67,12 @@ const DepositLogs = () => {
     return `$${amount.toFixed(2)}`;
   };
 
-  const formatConversion = (conversion) => {
-    return `$${conversion.toFixed(2)}`;
+  const formatCharge = (charge) => {
+    return `$${charge.toFixed(2)}`;
+  };
+
+  const formatNeedToPay = (needToPay) => {
+    return `$${needToPay.toFixed(2)}`;
   };
 
   const getStatusClass = (status) => {
@@ -85,11 +89,11 @@ const DepositLogs = () => {
   };
 
   return (
-    <div className="deposit-logs-container">
-      <div className="deposit-logs-header">
+    <div className="withdraw-logs-container">
+      <div className="withdraw-logs-header">
         <div className="header-content">
-          <h1 className="page-title">All Deposit Logs</h1>
-          
+          <h1 className="page-title">All Withdraw Logs</h1>
+         
         </div>
         <div className="header-controls">
           <div className="status-filter">
@@ -99,35 +103,36 @@ const DepositLogs = () => {
               className="status-select"
             >
               <option value="Pending">Pending</option>
-              <option value="Approved">Complete</option>
+              <option value="Approved">Approved</option>
               <option value="Rejected">Rejected</option>
               <option value="All">All</option>
             </select>
           </div>
         </div>
       </div>
-<p className="page-subtitle">Manage All Deposit Logs from Here</p>
-      <div className="deposit-logs-card">
+ <p className="page-subtitle">Manage All Withdraw Logs from Here</p>
+      <div className="withdraw-logs-card">
         <div className="card-header">
           <h2 className="card-title">📊 Logs</h2>
         </div>
         
         <div className="table-container">
-          <table className="deposit-logs-table">
+          <table className="withdraw-logs-table">
             <thead>
               <tr>
                 <th>Gateway</th>
                 <th>User</th>
                 <th>Amount</th>
-                <th>Conversion</th>
-                <th>Transaction Id</th>
+                <th>Charge</th>
+                <th>Need To Pay</th>
+                <th>Payment Address</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {currentLogs.map((log) => (
-                <tr key={log.id} className="deposit-row">
+                <tr key={log.id} className="withdraw-row">
                   <td className="gateway-cell">
                     <span className="gateway-name">{log.gateway}</span>
                   </td>
@@ -137,11 +142,14 @@ const DepositLogs = () => {
                   <td className="amount-cell">
                     <span className="amount">{formatAmount(log.amount)}</span>
                   </td>
-                  <td className="conversion-cell">
-                    <span className="conversion">{formatConversion(log.conversion)}</span>
+                  <td className="charge-cell">
+                    <span className="charge">{formatCharge(log.charge)}</span>
                   </td>
-                  <td className="transaction-id-cell">
-                    <span className="transaction-id">{log.transactionId}</span>
+                  <td className="need-to-pay-cell">
+                    <span className="need-to-pay">{formatNeedToPay(log.needToPay)}</span>
+                  </td>
+                  <td className="payment-address-cell">
+                    <span className="payment-address">{log.paymentAddress}</span>
                   </td>
                   <td className="status-cell">
                     <span className={`status ${getStatusClass(log.status)}`}>
@@ -188,4 +196,4 @@ const DepositLogs = () => {
   );
 };
 
-export default DepositLogs;
+export default WithdrawLogs;
