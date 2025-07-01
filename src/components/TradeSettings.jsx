@@ -25,7 +25,7 @@ const TradeSettings = () => {
         <div className="form-row single">
           <div className="form-group">
             <label>Daily Trade Limit (Times)</label>
-            <input type="number" defaultValue="99" className="form-input" />
+            <input type="number" defaultValue="5" className="form-input" />
           </div>
         </div>
       </div>
@@ -92,6 +92,83 @@ const TradeSettings = () => {
             <input type="number" defaultValue="999" className="form-input" />
           </div>
         </div>
+      </div>
+
+      <div className="settings-section">
+        <h2 className="section-title">Bot Trade Time & Profit Setup</h2>
+        
+        <div className="time-profit-grid">
+          <div className="time-profit-row">
+            <div className="time-profit-pair">
+              <div className="form-group">
+                <label>Time (Hour)</label>
+                <input type="number" defaultValue="5" className="form-input" />
+              </div>
+              <div className="arrow-icon">➤</div>
+              <div className="form-group">
+                <label>Profit (%)</label>
+                <input type="number" defaultValue="1" className="form-input" />
+              </div>
+            </div>
+            <div className="time-profit-pair">
+              <div className="form-group">
+                <label>Time (Hour)</label>
+                <input type="number" defaultValue="10" className="form-input" />
+              </div>
+              <div className="arrow-icon">➤</div>
+              <div className="form-group">
+                <label>Profit (%)</label>
+                <input type="number" defaultValue="2" className="form-input" />
+              </div>
+            </div>
+          </div>
+
+          <div className="time-profit-row">
+            <div className="time-profit-pair">
+              <div className="form-group">
+                <label>Time (Hour)</label>
+                <input type="number" defaultValue="30" className="form-input" />
+              </div>
+              <div className="arrow-icon">➤</div>
+              <div className="form-group">
+                <label>Profit (%)</label>
+                <input type="number" defaultValue="3" className="form-input" />
+              </div>
+            </div>
+            <div className="time-profit-pair">
+              <div className="form-group">
+                <label>Time (Hour)</label>
+                <input type="number" defaultValue="45" className="form-input" />
+              </div>
+              <div className="arrow-icon">➤</div>
+              <div className="form-group">
+                <label>Profit (%)</label>
+                <input type="number" defaultValue="4" className="form-input" />
+              </div>
+            </div>
+          </div>
+
+          <div className="time-profit-row">
+            <div className="time-profit-pair">
+              <div className="form-group">
+                <label>Time (Hour)</label>
+                <input type="number" defaultValue="60" className="form-input" />
+              </div>
+              <div className="arrow-icon">➤</div>
+              <div className="form-group">
+                <label>Profit (%)</label>
+                <input type="number" defaultValue="5" className="form-input" />
+              </div>
+            </div>
+            <div className="time-profit-pair empty">
+              {/* Empty space for alignment */}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="update-button-container">
+        <button className="update-button">Update Setting</button>
       </div>
     </div>
   )
