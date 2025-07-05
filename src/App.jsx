@@ -2,7 +2,9 @@ import React, { useState, useMemo, useEffect } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import './App.css'
-
+import "./components/PendingKycData.css";
+import "./components/ReferralSetting.css";
+import "./components/ManageCoins.css";
 import TradeSettings from './components/TradeSettings'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
@@ -21,7 +23,11 @@ import DepositLogs from './components/DepositLogs'
 import Transactions from './components/Transactions'
 import TransferLogs from './components/TransferLogs'
 import WithdrawLogs from './components/WithdrawLogs'
+import PendingKycData from "./components/PendingKycData";
+import ReferralSetting from "./components/ReferralSetting";
+import ManageCoins from "./components/ManageCoins";
 import{ mockUsers } from './data/mockUsers' // Import mock users if needed
+import SiteSettings from './components/SiteSettings';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -162,6 +168,14 @@ function App() {
       case 'logout':
         handleLogout();
         return null;
+      case "pending-kyc":
+        return <PendingKycData />;
+      case "referral-setting":
+        return <ReferralSetting />;
+      case "manage-coins":
+        return <ManageCoins />;
+      case 'site-settings':
+        return <SiteSettings/>
       default:
         return (
           <div style={{ padding: 40, textAlign: 'center', color: '#888' }}>

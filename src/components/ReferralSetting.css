@@ -1,0 +1,227 @@
+/* Referral Setting Styles */
+.referral-setting {
+  width: 100%;
+  max-width: none;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e53e3e;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.referral-settings-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  /* Removed max-width to span full width */
+}
+
+.referral-bonus-section {
+  margin-bottom: 20px;
+}
+
+.referral-bonus-section:last-of-type {
+  margin-bottom: 16px;
+}
+
+.bonus-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.bonus-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e53e3e;
+  margin: 0;
+}
+
+.level-select {
+  padding: 8px 16px;
+  border: 2px solid #e53e3e;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  color: #e53e3e;
+  cursor: pointer;
+  min-width: 60px;
+  font-weight: 500;
+  outline: none;
+}
+
+.level-select:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 800px; /* Limit the grid width for better UX */
+}
+
+.level-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.level-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e53e3e;
+  margin-bottom: 6px;
+}
+
+.level-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-symbol {
+  position: absolute;
+  left: 16px;
+  color: #e53e3e;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.level-input {
+  width: 100%;
+  padding: 10px 16px 10px 32px;
+  border: 2px solid #e53e3e;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+  background: white;
+  color: #334155;
+  outline: none;
+}
+
+.level-input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.level-input::placeholder {
+  color: #94a3b8;
+}
+
+.update-information-button {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  width: 100%;
+  margin-top: 8px;
+  outline: none !important;
+  border: none !important;
+  transform: translateY(0px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.update-information-button:hover {
+  background: #fa3b3b;
+  outline: none !important;
+  border: none !important;
+}
+
+.update-information-button:active {
+  background: #c2181e;
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  outline: none !important;
+  border: none !important;
+}
+
+.update-information-button:focus {
+  background: #c2181e;
+  outline: none !important;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.update-information-button:focus-visible {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Wide Screen Optimizations */
+@media (min-width: 1200px) {
+  .referral-settings-section {
+    padding: 24px;
+  }
+
+  .levels-grid {
+    gap: 18px;
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .referral-settings-section {
+    padding: 28px;
+  }
+
+  .levels-grid {
+    gap: 20px;
+    max-width: 1000px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .levels-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: none;
+  }
+
+  .bonus-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .referral-settings-section {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .referral-settings-section {
+    padding: 12px;
+  }
+
+  .bonus-header {
+    gap: 8px;
+  }
+
+  .levels-grid {
+    gap: 12px;
+  }
+}
